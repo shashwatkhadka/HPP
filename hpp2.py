@@ -13,10 +13,14 @@ df['Has_Parking'] = df['AMENROW'].apply(lambda x: 'Parking' in x)
 df['ER'] = df['AMENROW'].apply(lambda x: 'Earthquake Resistant' in x)
 df['DW'] = df['AMENROW'].apply(lambda x: 'Drinking Water' in x)
 
+df['Has_ParkingN'] = df['Has_Parking'].replace({'TRUE': 1, 'FALSE': 0})
+df['ER_N'] = df['ER'].replace({'TRUE': 1, 'FALSE': 0})
+df['DW_N'] = df['DW'].replace({'TRUE': 1, 'FALSE': 0})
+
 
 df.dropna(subset=['LA_N','RA_N','FACING_N'],inplace=True)
 #subset parameter allows us to specify multipe columns
 
 
 with pd.ExcelWriter('Data/DataSet.xlsx', mode='a',engine='openpyxl') as writer:
-    df[['CITY','LA_N','RA_N','BY_N','FLOOR','BEDROOM','BATHROOM','FACING_N','PRICE_N','Has_Parking','ER','DW']].to_excel(writer,sheet_name='FF', index=False)
+    df[['CITY','LA_N','RA_N','BY_N','FLOOR','BEDROOM','BATHROOM','FACING_N','PRICE_N','Has_ParkingN','ER_N','DW_N']].to_excel(writer,sheet_name='FF', index=False)
