@@ -1,7 +1,7 @@
 import pandas as pd
 from openpyxl import load_workbook
 
-df = pd.read_excel('Data/DataSet.xlsx',sheet_name="amenities")
+df = pd.read_excel('Data/DataSet.xlsx',sheet_name="FilteredData")
 
 # Check if 'Parking' is present in the 'AMENROW' list and create a new column 'Has_Parking'
 df['Has_Parking'] = df['AMENROW'].apply(lambda x: 'Parking' in x)
