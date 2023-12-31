@@ -13,6 +13,7 @@ def conv2string(name):
     df[name]=df[name].astype(str)
 
 
+#SEPERATE DATA VALUES, EXTRACTING NUMBER FROM STRING
 def city_seperate(old,new):
     seperated=row[old].split(',')
     df.at[index,new]=seperated[-1]
@@ -47,7 +48,7 @@ def price_seperate(old,new):
     else:
         df.drop(index,inplace=True)
    
-
+#CONVERTING STRINGS TO NUMBER
 conv2string("LAND AREA")
 conv2string("ROAD ACCESS")
 conv2string("BUILT YEAR")
@@ -61,6 +62,7 @@ for index,row in df.iterrows():
     by_seperate("BUILT YEAR","BY_N")
     price_seperate("PRICE","PRICE_N")
 
+#DATA VALUES FOR DIRECTION
 direction_priority={
     'East':1,
     'North':1.1,

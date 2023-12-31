@@ -17,7 +17,7 @@ df['Has_ParkingN'] = df['Has_Parking'].replace({'TRUE': 1, 'FALSE': 0})
 df['ER_N'] = df['ER'].replace({'TRUE': 1, 'FALSE': 0})
 df['DW_N'] = df['DW'].replace({'TRUE': 1, 'FALSE': 0})
 
-
+#DROPPING ROWS
 df.dropna(subset=['LA_N','RA_N','FACING_N'],inplace=True)
 #subset parameter allows us to specify multipe columns
 

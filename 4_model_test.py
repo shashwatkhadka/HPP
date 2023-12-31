@@ -99,7 +99,4 @@ def gbr():
     print(f"GBR R-squared (R2): {r2}")
 
 
-LRegr_Model()
-xgboost()
-rfr()
 gbr()
